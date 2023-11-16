@@ -13,7 +13,7 @@ time_to_display_df = end_time_display - start_time_display
 
 @st.cache_resource
 def save_parquet():
-    df.to_parquet("df.parquet", compression='snappy')
+    df.to_parquet("df.parquet", compression='lz4')
     df_read = pd.read_parquet('df.parquet')
     return df_read
 
