@@ -11,7 +11,7 @@ st.dataframe(df)
 end_time_display = time.time()
 time_to_display_df = end_time_display - start_time_display
 
-@st.cache_data(show_spinner='Loading...', persist=True)
+@st.cache_resource
 def save_parquet():
     df.to_parquet("df.parquet", compression='snappy')
     df_read = pd.read_parquet('df.parquet')
